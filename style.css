@@ -1,0 +1,157 @@
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+           background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+           font-family: "Poppins", "Segoe UI", Roboto, sans-serif;
+           color: #fff;
+           text-align: center;
+           padding-bottom: 2rem;
+}
+.top-bar {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+#scoreboard {
+  display:flex;
+  gap:2rem;
+  font-size: 1.05rem;
+  align-items:center;
+}
+#scoreboard span { background: rgba(0,0,0,0.12); padding: 0.6rem 1rem; border-radius: 0.6rem; 
+ transition: background-color 0.3s ease;
+}
+
+#scoreboard span:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+
+#turn { font-size: 1.1rem;
+     margin-top: 0.4rem; 
+     font-weight: 600;
+
+}
+
+.box:hover:not(:disabled) {
+  transform: scale(1.06);
+  box-shadow: 0 0.6rem 1.2rem rgba(0,0,0,0.25);
+}
+.box.winner {
+  background-color: #7ef29b !important;
+  color: #0a0a0a;
+  animation: winnerPulse 0.7s ease-in-out infinite alternate;
+}
+@keyframes winnerPulse {
+  from { transform: scale(1); box-shadow: 0 0 0.4rem rgba(76,161,97,0.9); }
+  to   { transform: scale(1.06); box-shadow: 0 0 1rem rgba(76, 161, 97, 0.9); }
+}
+@media (max-width: 600px) {
+  .game { width: 88vmin; height: 88vmin; }
+  .box { width: 26vmin; height: 26vmin; font-size: 12vmin; }
+  #msg { font-size: 6vmin; }
+}
+
+        .container {
+            height: 70vh;
+            /*70%* hmare page ka 70% part container ka hoga */
+            display: flex;
+            justify-content: center;
+            /* gap: 1.5vmin; */
+            
+        
+        }
+        .game {
+            height: 60vmin;
+            /* container ka 60% part game ka hoga*/
+            width: 60vmin;
+            display: flex;
+            /* display : flex -- all the boxes are in single line */
+            flex-wrap: wrap;
+            /*  if we want to wrap the boxes in next line means agr jgh nhi hai to neeche ao  */
+            justify-content: center;
+           /* //horizonatly centre */
+              align-items:center;
+              /* /vertically center */
+            gap: 1.5vmin;
+        }
+        .box {
+            height: 18vmin;
+            /*18%*/
+            width: 18vmin;
+            border-radius: 1rem;
+            /* // rem means root em --and it is uused for round the corners */
+            border: none;
+            box-shadow: 0 0 1rem rgb(39, 35, 35,0.6);
+            /* i rem = 16 px --1.5 rem = 24 px  */
+            cursor: pointer;
+        /* cursor point means jha jha humara mouse jaega vha pointer bn jaega */
+            font-size: 8vmin;
+            color: rgb(43, 33, 33);
+            background-color: rgb(196, 250, 255);
+            transition: all 0.25s ease;
+        }
+       #reset, #new {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #222;
+  color: white;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#reset:hover, #new:hover {
+  background-color:  #00b4db;
+  color: #000;
+  transform: scale(1.05);
+}
+#reset:active, #new:active {
+  transform: scale(0.96);
+}
+        #msg {
+  font-size: 5vmin;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+        .msg-container {
+           position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 10;
+        }
+        .hide{
+            display: none;
+        }
+
+        /* --- Blink animation for buttons on hover --- */
+        @keyframes blink {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.15; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Apply blink on hover for Reset and New Game buttons only */
+
+
+         .box.filled {
+            animation: blink 0.2s ease-in-out 0.2s;
+           animation-fill-mode: none;
+         }

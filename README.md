@@ -12,7 +12,7 @@ Play against a friend and keep track of scores!
 - Winner highlighting animation ✨  
 - Responsive design for **mobile and desktop**  
 - Draw detection 🤝  
-- Optional: sound effects and local storage for scores  
+
 
 ---
 
